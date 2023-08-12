@@ -1,0 +1,92 @@
+import dependencies.Versions
+import dependencies.Application
+import dependencies.Dependencies
+
+plugins {
+    id("com.google.devtools.ksp") version "1.8.10-1.0.9"
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.10'
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+}
+
+android {
+    namespace Application.id
+    compileSdk Versions.compilesdk
+
+    defaultConfig {
+        applicationId Application.id
+        minSdk Versions.minsdk
+        targetSdk Versions.targetsdk
+        versionCode Application.version_code
+        versionName Application.version_name
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion compose_version
+    }
+    bundle {
+        storeArchive {
+            enable = false
+        }
+    }
+}
+
+dependencies {
+
+    implementation Dependencies.core_ktx
+    implementation Dependencies.appcompat
+    implementation Dependencies.material
+    implementation Dependencies.compose_splash
+    implementation Dependencies.compose_ui
+    implementation Dependencies.compose_material
+    implementation Dependencies.compose_preview
+    implementation Dependencies.compose_material3
+    implementation Dependencies.compose_activity
+    implementation Dependencies.compose_ui_tooling
+    implementation Dependencies.compose_navigation
+    implementation Dependencies.compose_foundation
+    implementation Dependencies.compose_runtime
+    implementation Dependencies.compose_runtime_livedata
+    implementation Dependencies.compose_mat_icons_core
+    implementation Dependencies.compose_mat_icons_core_extended
+    implementation Dependencies.coroutines
+    implementation Dependencies.fragment_ktx
+    implementation Dependencies.lifecycle_viewmodel
+    implementation Dependencies.lifecycle_runtime
+    implementation Dependencies.lifecycle_compose
+
+    implementation Dependencies.koin
+    implementation Dependencies.koin_compose
+    implementation Dependencies.retrofit
+    implementation Dependencies.converter_gson
+    implementation Dependencies.okhttp
+    implementation Dependencies.okhttp_login_interceptor
+    implementation Dependencies.pagingCompose
+    ksp Dependencies.kspdestinations
+    implementation Dependencies.destinations
+    implementation Dependencies.kotlin_serialization
+    implementation Dependencies.datastore
+}

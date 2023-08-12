@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">CoinView</string>
+    <string name="version">ver.01</string>
+    <string name="market_title">Markets</string>
+    <string name="settings">Settings</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="price">Price USD</string>
+    <string name="vwap">VWAP (24h)</string>
+    <string name="volume">Volume USD (24h)</string>
+    <string name="market">Market Cap USD (24h)</string>
+    <string name="supply">Supply</string>
+    <string name="max_supply">Max Supply</string>
+    <string name="trades">Trades Count (24h)</string>
+
+    <string name="price_value">$ %.2f</string>
+    <string name="percent">%.2f %%</string>
+    <string name="symbol_value">%.2f %s</string>
+    <string name="symbols">%s - %s</string>
+</resources>
